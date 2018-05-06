@@ -17,6 +17,10 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     private Image player1SkinSelction;
     [SerializeField]
     private Image player2SkinSelction;
+    [SerializeField]
+    private Image p1Ring;
+    [SerializeField]
+    private Image p2Ring;
 
     private void Start() {
         //Both player are not ready when the players first go to the skin selection screen
@@ -26,6 +30,8 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         p2Count = PlayerPrefs.GetInt("P2SkinID", 0);
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
+        p1Ring.gameObject.SetActive((p1Count == 2));
+        p2Ring.gameObject.SetActive((p2Count == 2));
     }
     private void Update() {
         if(p1Ready == true && p2Ready == true) {
@@ -38,6 +44,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p1Count = 0;
         }
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
+        p1Ring.gameObject.SetActive((p1Count == 2));
         PlayerPrefs.SetInt("P1SkinID", p1Count);
     }
     public void p2SkinChoiceNext() {
@@ -46,6 +53,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p2Count = 0;
         }
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
+        p2Ring.gameObject.SetActive((p2Count == 2));
         PlayerPrefs.SetInt("P2SkinID", p2Count);
     }
     public void p1SkinChoicePrev() {
