@@ -5,12 +5,24 @@ using UnityEngine.Events;
 /// handles the collectables for each player
 /// Joel Lee
 /// </summary>
-public class PlayerPickUpHandler : MonoBehaviour {
+public class PlayerPickUpHandler : MonoBehaviour
+{
+    [SerializeField]
+    private float scaleChangeAmount = .3f;
+
+    [SerializeField]
+    private UnityEvent onPickup;
+
     private int _pickUpCount;
     ChangeSizeEvent AdjustSpeed;
+    private Transform player;
+
+    private PlayerMovement playerMovement;
 
     void Start() {
         AdjustSpeed = new ChangeSizeEvent();
+        player = GetComponent<SpriteRenderer>().transform;
+        playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
     public int PickUpCount {
@@ -25,9 +37,15 @@ public class PlayerPickUpHandler : MonoBehaviour {
     /// <param name="amount"></param>
     public void ChangeSize(int amount) {
         _pickUpCount -= amount;
-        AdjustSpeed.Invoke(_pickUpCount);
+        onPickup.Invoke();
+        
+        //AdjustSpeed.Invoke(_pickUpCount);
+
     }
 
 }
 
-public class ChangeSizeEvent : UnityEvent<int> {}
+public class ChangeSizeEvent : UnityEvent<int>
+{
+
+}

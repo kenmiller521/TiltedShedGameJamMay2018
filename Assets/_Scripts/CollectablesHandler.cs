@@ -13,6 +13,13 @@ public class CollectablesHandler : MonoBehaviour {
     public float SpawnDelay = 5f;
     private int _spawnedCount = 0;
 
+    [SerializeField]
+    private int playerBoostSpawnAmount = 3;
+    [SerializeField]
+    private float playerBoostSpawnDelay = .2f;
+
+    private Coroutine boostSpawnCo;
+
     void Awake() {
         for(int i = 0; i < MaxSpawnAmount; i++) {
             SpawnCollectable();
@@ -47,6 +54,28 @@ public class CollectablesHandler : MonoBehaviour {
             go.OnPickUp += LowerSpawnCount;
             _spawnedCount++;
         }
+    }
+
+    public void SpawnCollectableAtPlayerLocation(GameObject player)
+    {
+        if(boostSpawnCo == null)
+            boostSpawnCo = StartCoroutine(SpawnCollectableAtPlayerLocationCo(player));
+    }
+
+    public IEnumerator SpawnCollectableAtPlayerLocationCo(GameObject player)
+    {
+        for (int i = 0; i < playerBoostSpawnAmount; i++)
+        {
+            CollectableObject go = Instantiate(ObjectToSpawn, player.transform.position, Quaternion.identity);
+            go.gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(playerBoostSpawnDelay);
+            go.gameObject.SetActive(true);
+            go.OnPickUp += LowerSpawnCount;
+        }
+
+        boostSpawnCo = null;
+
     }
 
     /// <summary>
