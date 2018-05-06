@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// handles the collectables for the scene
+/// Joel Lee
+/// </summary>
 public class CollectablesHandler : MonoBehaviour {
     public CollectableObject ObjectToSpawn;
     public float SizeOfArena = 10f;
