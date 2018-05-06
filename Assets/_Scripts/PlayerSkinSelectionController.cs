@@ -21,6 +21,10 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     private Image p1Ring;
     [SerializeField]
     private Image p2Ring;
+    [SerializeField]
+    private Button p1PrevButton, p1NextButton;
+    [SerializeField]
+    private Button p2PrevButton, p2NextButton;
 
     private void Start() {
         //Both player are not ready when the players first go to the skin selection screen
@@ -73,9 +77,13 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     public void player1ReadyButton(Image buttonImage) {
         p1Ready = !p1Ready;
         buttonImage.color = (p1Ready) ? Color.green : Color.red;
+        p1PrevButton.interactable = !p1Ready;
+        p1NextButton.interactable = !p1Ready;
     }
     public void player2ReadyButton(Image buttonImage) {
         p2Ready = !p2Ready;
         buttonImage.color = (p2Ready) ? Color.green : Color.red;
+        p2PrevButton.interactable = !p2Ready;
+        p2NextButton.interactable = !p2Ready;
     }
 }
