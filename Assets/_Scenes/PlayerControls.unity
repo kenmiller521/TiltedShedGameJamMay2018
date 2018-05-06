@@ -221,6 +221,8 @@ MonoBehaviour:
   Right: 275
   Boost: 256
   moveSpeed: 5
+  boostSpeedMultiplier: 2
+  boostDuration: 0.5
 --- !u!50 &564538781
 Rigidbody2D:
   serializedVersion: 4
@@ -349,6 +351,8 @@ MonoBehaviour:
   Right: 100
   Boost: 118
   moveSpeed: 5
+  boostSpeedMultiplier: 2
+  boostDuration: 0.5
 --- !u!50 &645018831
 Rigidbody2D:
   serializedVersion: 4
