@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359324900049474}
   - component: {fileID: 212120328803686374}
+  - component: {fileID: 114769230891853042}
   m_Layer: 0
   m_Name: whitering2
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820087877538094}
   - component: {fileID: 212326363344926592}
+  - component: {fileID: 114975249579668308}
   m_Layer: 0
   m_Name: whitering1
   m_TagString: Untagged
@@ -52,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4217944041170358}
   - component: {fileID: 212572464489906214}
+  - component: {fileID: 114145451134926072}
   m_Layer: 0
   m_Name: whiteyellowring1
   m_TagString: Untagged
@@ -84,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4286484678784588}
   - component: {fileID: 212163713994630864}
+  - component: {fileID: 114429454343563246}
   m_Layer: 0
   m_Name: whiteyellowring2
   m_TagString: Untagged
@@ -115,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4914924477659612}
   - component: {fileID: 212828088996380716}
+  - component: {fileID: 114283231634126104}
   m_Layer: 0
   m_Name: yellowring2
   m_TagString: Untagged
@@ -131,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131019865896176}
   - component: {fileID: 212598953537203222}
+  - component: {fileID: 114946149138427738}
   m_Layer: 0
   m_Name: yellowring1
   m_TagString: Untagged
@@ -249,6 +255,90 @@ Transform:
   m_Father: {fileID: 4367388266799820}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114145451134926072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539249774460388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
+--- !u!114 &114283231634126104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936505630971880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
+--- !u!114 &114429454343563246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708233026882398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
+--- !u!114 &114769230891853042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299389843718964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
+--- !u!114 &114946149138427738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964867125875758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
+--- !u!114 &114975249579668308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430636540665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da26955ca909fe4fb7f313c48a99168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationalSpeed: 0.1
+  RandomSpeed: 1
+  RandomModifier: 0.1
 --- !u!212 &212120328803686374
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -284,7 +374,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 971a36f5a373288448b1c028cd5a0c41, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -328,7 +418,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 77026b4204523c84d9665ab001c42617, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -372,7 +462,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 330a2de5b89fb38418189ff7f782b725, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -416,7 +506,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 068eccfc9b4ed2545bb4967c1fb30808, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -460,7 +550,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 91c6f5d8a0e1f3e428b34c16785f4388, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -504,7 +594,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 60ffae16f5e803f4181d52624ce4d150, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5279919, g: 0, b: 0.5588235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
