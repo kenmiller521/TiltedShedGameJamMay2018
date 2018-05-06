@@ -218,7 +218,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -8
   m_CullingMask:
     serializedVersion: 2
@@ -254,7 +254,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -290,7 +290,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -10
   m_CullingMask:
     serializedVersion: 2
@@ -326,7 +326,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -9
   m_CullingMask:
     serializedVersion: 2
@@ -362,7 +362,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -7
   m_CullingMask:
     serializedVersion: 2
@@ -398,7 +398,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 35
   m_Depth: -11
   m_CullingMask:
     serializedVersion: 2
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraTargets: []
-  CenterTargetOnStart: 0
+  CenterTargetOnStart: 1
   Axis: 0
   UpdateType: 0
   FollowHorizontal: 1
@@ -462,14 +462,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pc2D: {fileID: 114122548969082438}
-  ZoomOutBorder: 0.5
+  ZoomOutBorder: 0.4
   ZoomInBorder: 0.25
   ZoomInSmoothness: 1
   ZoomOutSmoothness: 1
-  MaxZoomInAmount: 3
-  MaxZoomOutAmount: 4
-  DisableWhenOneTarget: 1
-  CompensateForCameraPosition: 0
+  MaxZoomInAmount: 5
+  MaxZoomOutAmount: 10
+  DisableWhenOneTarget: 0
+  CompensateForCameraPosition: 1
 --- !u!114 &114668737257088456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -514,16 +514,16 @@ MonoBehaviour:
   _pc2D: {fileID: 114122548969082438}
   UseNumericBoundaries: 1
   UseTopBoundary: 1
-  TopBoundary: 33
+  TopBoundary: 50
   TargetTopBoundary: 0
   UseBottomBoundary: 1
-  BottomBoundary: -33
+  BottomBoundary: -50
   TargetBottomBoundary: 0
   UseLeftBoundary: 1
-  LeftBoundary: -34
+  LeftBoundary: -50
   TargetLeftBoundary: 0
   UseRightBoundary: 1
-  RightBoundary: 34
+  RightBoundary: 50
   TargetRightBoundary: 0
   IsCameraPositionHorizontallyBounded: 0
   IsCameraPositionVerticallyBounded: 0
