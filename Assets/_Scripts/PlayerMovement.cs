@@ -43,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float boostSpeedMultiplier;
 
+    [SerializeField]
+    private PlayerPickUpHandler pickupHandler;
+
+
     [Tooltip("In Seconds")]
     [SerializeField]
     private float boostDuration;
@@ -56,11 +60,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidB;
     private Vector2 moveDirection;
     private Vector2 boostDirection;
-    
+
 
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
+
     }
 
     void Update ()
