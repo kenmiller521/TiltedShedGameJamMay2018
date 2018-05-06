@@ -22,6 +22,8 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         //Both player are not ready when the players first go to the skin selection screen
         p1Ready = false;
         p2Ready = false;
+        p1Count = PlayerPrefs.GetInt("P1SkinID", 0);
+        p2Count = PlayerPrefs.GetInt("P2SkinID", 0);
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
     }
@@ -36,6 +38,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p1Count = 0;
         }
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
+        PlayerPrefs.SetInt("P1SkinID", p1Count);
     }
     public void p2SkinChoiceNext() {
         p2Count++;
@@ -43,6 +46,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p2Count = 0;
         }
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
+        PlayerPrefs.SetInt("P2SkinID", p2Count);
     }
     public void p1SkinChoicePrev() {
         p1Count--;
