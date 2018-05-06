@@ -21,7 +21,7 @@ public class PlayerPickUpHandler : MonoBehaviour
 
     void Start() {
         AdjustSpeed = new ChangeSizeEvent();
-        player = GetComponent<SpriteRenderer>().transform;
+        player = GetComponentInChildren<SpriteRenderer>().transform;
         playerMovement = GetComponentInParent<PlayerMovement>();
     }
 

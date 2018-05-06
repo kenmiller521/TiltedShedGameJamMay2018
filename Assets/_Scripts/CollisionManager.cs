@@ -18,15 +18,13 @@ public class CollisionManager : MonoBehaviour
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
-        pickUpHandler = GetComponentInChildren<PlayerPickUpHandler>();
+        pickUpHandler = GetComponent<PlayerPickUpHandler>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(tagToCheck))
         {
-            print("reeeee@@@@");
-
             PlayerPickUpHandler otherPickUpHandler = other.gameObject.GetComponent<PlayerPickUpHandler>();            
 
   
