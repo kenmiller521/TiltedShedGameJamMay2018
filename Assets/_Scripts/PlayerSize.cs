@@ -13,8 +13,15 @@ public class PlayerSize : MonoBehaviour
      private Vector2 startingLocalScale = Vector2.one;
 
      [SerializeField]
+     private Vector2 minLocalScale = Vector2.one;
+
+    [SerializeField]
      private float scaleChangeSize = .5f;
 
+     private void Awake()
+     {
+         transform.localScale = startingLocalScale;
+     }
 
      public void IncreaseSize()
      {
@@ -24,6 +31,9 @@ public class PlayerSize : MonoBehaviour
      public void DecreaseSize()
      {
          transform.localScale = new Vector2(transform.localScale.x - scaleChangeSize, transform.localScale.y - scaleChangeSize);
+
+         if (transform.localScale.magnitude < minLocalScale.magnitude)
+             transform.localScale = minLocalScale;
      }
 
 

@@ -40,6 +40,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+
+    [SerializeField]
+    private float minMoveSpeed = 2f;
+
+    [SerializeField]
+    private float minBoostSpeed = 12f;
+
     [SerializeField]
     private float boostSpeedMultiplier;
 
@@ -105,13 +112,19 @@ public class PlayerMovement : MonoBehaviour
     public void ChangeSpeed(float amount)
     {
         moveSpeed += amount;
+
+        if (moveSpeed <= minMoveSpeed)
+            moveSpeed = minMoveSpeed;
     }
 
     public IEnumerator BoostCo()
     {
         onBoost.Invoke();
         boostDirection = moveDirection;
-        rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveSpeed * boostSpeedMultiplier * boostDirection, Time.deltaTime);
+
+        float speed = moveSpeed < minBoostSpeed ? minBoostSpeed : moveSpeed;
+
+        rigidB.velocity = Vector2.Lerp(rigidB.velocity, speed * boostSpeedMultiplier * boostDirection, Time.deltaTime);
         yield return new WaitForSeconds(boostDuration);
         isBoosting = false;
         boostCoroutine = null;
