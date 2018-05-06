@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
             moveDirection = Vector3.Normalize(moveDirection);
 
-            rigidB.velocity = moveDirection * moveSpeed;
+            rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
             transform.right = moveDirection;
         }
 
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator BoostCo()
     {
         boostDirection = moveDirection;
-        rigidB.velocity = moveSpeed * boostSpeedMultiplier * boostDirection;
+        rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveSpeed * boostSpeedMultiplier * boostDirection, Time.deltaTime);
         yield return new WaitForSeconds(boostDuration);
         isBoosting = false;
         boostCoroutine = null;
