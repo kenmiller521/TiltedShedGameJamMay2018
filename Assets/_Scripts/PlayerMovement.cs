@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-///
+/// Manages player movement, deactivates control on boost and on knockback
 /// Ruben Sanchez
 /// 
 /// </summary>
@@ -123,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator KnockCo()
     {
+        onKnock.Invoke();
         yield return new WaitForSeconds(knockBackDuration);
         isKnocked = false;
         knockCoroutine = null;
