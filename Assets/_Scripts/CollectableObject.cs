@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// an object that is supposed to be collected by the player
@@ -11,10 +12,13 @@ public class CollectableObject : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c) {
         PlayerPickUpHandler temp = c.GetComponent<PlayerPickUpHandler>();
-        if (temp != null) {
+        if (temp != null)
+        {
+       
             //sound trigger
             temp.ChangeSize(+1);
             if (OnPickUp != null) OnPickUp();
+
             Destroy(gameObject);
         }
     }
