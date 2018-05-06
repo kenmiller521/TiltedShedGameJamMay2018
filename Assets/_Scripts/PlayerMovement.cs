@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 ///
@@ -9,6 +10,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private UnityEvent onBoost;
+
+    [Tooltip("When the smaller player gets knocked back")]
+    [SerializeField]
+    private UnityEvent onKnock;
+
+    [Tooltip("In Seconds")]
+    [SerializeField]
+    private float knockBackDuration;
+
+
     [SerializeField]
     private KeyCode Up;
 
@@ -34,11 +47,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float boostDuration;
 
-    private bool isBoosting; // do not allow steering during boost
+    private bool isBoosting; // do not monitor input during boost
+    private Coroutine boostCoroutine;
+
+    private bool isKnocked; // do not monitor input during knockback
+    private Coroutine knockCoroutine;
+
     private Rigidbody2D rigidB;
     private Vector2 moveDirection;
     private Vector2 boostDirection;
-    private Coroutine boostCoroutine;
+    
 
     private void Awake()
     {
@@ -47,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update ()
     {
-        if (!isBoosting)
+        if (!isBoosting && !isKnocked)
         {
              moveDirection = Vector2.zero;
 
@@ -76,12 +94,7 @@ public class PlayerMovement : MonoBehaviour
                 isBoosting = true;
                 boostCoroutine = StartCoroutine(BoostCo());
             }
-           
-
-
         }
-
-       
     }
 
     public void ChangeSpeed(float amount)
@@ -91,10 +104,27 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator BoostCo()
     {
+        onBoost.Invoke();
         boostDirection = moveDirection;
         rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveSpeed * boostSpeedMultiplier * boostDirection, Time.deltaTime);
         yield return new WaitForSeconds(boostDuration);
         isBoosting = false;
         boostCoroutine = null;
+    }
+
+    public void Knock()
+    {
+        if (knockCoroutine == null)
+        {
+            isKnocked = true;
+            knockCoroutine = StartCoroutine(KnockCo());
+        }
+    }
+
+    public IEnumerator KnockCo()
+    {
+        yield return new WaitForSeconds(knockBackDuration);
+        isKnocked = false;
+        knockCoroutine = null;
     }
 }
