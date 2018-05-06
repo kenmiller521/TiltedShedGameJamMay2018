@@ -13,8 +13,8 @@ public class CollectableObject : MonoBehaviour {
         PlayerPickUpHandler temp = c.GetComponent<PlayerPickUpHandler>();
         if (temp != null) {
             //sound trigger
-            temp.ChangeSize(+1s);
-            OnPickUp();
+            temp.ChangeSize(+1);
+            if (OnPickUp != null) OnPickUp();
             Destroy(gameObject);
         }
     }
