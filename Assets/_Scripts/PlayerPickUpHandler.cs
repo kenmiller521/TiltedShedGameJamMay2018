@@ -1,24 +1,33 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// handles the collectables for each player
 /// Joel Lee
 /// </summary>
 public class PlayerPickUpHandler : MonoBehaviour {
-    private int PickUpCount;
-    //playercontroller
+    private int _pickUpCount;
+    ChangeSizeEvent AdjustSpeed;
 
-    public void IncrementCount() {
-        PickUpCount++;
-        AdjustPlayer();
+    void Start() {
+        AdjustSpeed = new ChangeSizeEvent();
     }
 
-    public void DecrementSize() {
-        PickUpCount--;
+    public int PickUpCount {
+        get { return _pickUpCount; }
+        set { _pickUpCount = value; }
     }
-
-    public void AdjustPlayer() {
-        //playercontroller.changestats(pickupcount)
+    /// <summary>
+    /// Changes the amount of pickups we are carrying up to an amount
+    /// Fires off the adjust speed event on the player
+    /// recieves the change size event from the player
+    /// </summary>
+    /// <param name="amount"></param>
+    public void ChangeSize(int amount) {
+        _pickUpCount -= amount;
+        AdjustSpeed.Invoke(_pickUpCount);
     }
 
 }
+
+public class ChangeSizeEvent : UnityEvent<int> {}
