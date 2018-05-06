@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float boostDuration;
 
-    private bool isBoosting; // do not monitor input during boost
+    public bool isBoosting { get; private set; } // do not monitor input during boost
     private Coroutine boostCoroutine;
 
     private bool isKnocked; // do not monitor input during knockback

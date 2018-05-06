@@ -25,18 +25,19 @@ public class CollisionManager : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerPickUpHandler>() != null)
         {
             PlayerPickUpHandler otherPickUpHandler = other.gameObject.GetComponent<PlayerPickUpHandler>();
+            int difference = pickUpHandler.PickUpCount - otherPickUpHandler.PickUpCount;
 
             //if other planet is smaller
-            if (otherPickUpHandler.PickUpCount < pickUpHandler.PickUpCount)
+            if (difference > 0)
             {
-                int difference = pickUpHandler.PickUpCount - otherPickUpHandler.PickUpCount;
-                Vector2 direction = Vector3.Normalize(other.transform.position - transform.position);
+                //you were boosting
+                if (GetComponentInParent<PlayerMovement>() != null && GetComponentInParent<PlayerMovement>().isBoosting)
+                {
+                    Vector2 direction = Vector3.Normalize(other.transform.position - transform.position);
 
-                otherPickUpHandler.GetComponentInParent<Rigidbody2D>().AddForce(direction * forceScaleMultiplier);
+                    otherPickUpHandler.GetComponentInParent<Rigidbody2D>().AddForce(direction * forceScaleMultiplier);
+                }
             }
-
-
         }
-
     }
 }
