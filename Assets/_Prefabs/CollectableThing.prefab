@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142815073341238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.325966, y: -1.9963458, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4432399623074888}
@@ -113,12 +113,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableSprites:
+  - {fileID: 21300000, guid: fc11ffd0f4702224698964b70a50ba29, type: 3}
+  - {fileID: 21300000, guid: fbf2c74d15f124044875882485e09b0b, type: 3}
+  - {fileID: 21300000, guid: fe0b5165678d547419e89450f8748f33, type: 3}
   - {fileID: 21300000, guid: 8bdd75bb7f3448742ad44850127ae49f, type: 3}
   - {fileID: 21300000, guid: 744af9ad2a0de5744973603e5eb45908, type: 3}
   - {fileID: 21300000, guid: 93c77dbc0f9b75f48ba5bfb5d18c6418, type: 3}
   - {fileID: 21300000, guid: a81ea4420288b224aa2dfbfd57f9a3c9, type: 3}
   - {fileID: 21300000, guid: fd5aa877a3ca05246b9b6caedf23d8dc, type: 3}
   - {fileID: 21300000, guid: a046c084d0ac9ad49a1ee5607815136f, type: 3}
+  - {fileID: 21300000, guid: 1593ee7b7fa788f41aed6710803534ea, type: 3}
 --- !u!212 &212496596490480310
 SpriteRenderer:
   m_ObjectHideFlags: 1
