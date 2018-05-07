@@ -21,10 +21,6 @@ public class RotateObject : MonoBehaviour {
     }
 
     void Update() {
-<<<<<<< HEAD
-=======
-        //Debug.Log(Time.deltaTime);
->>>>>>> 912e53c6e2d23f49b57fcbc08b2701cb0e9c8aaa
         transform.Rotate(transform.forward, RotationalSpeed * Time.timeScale);
     }
 
