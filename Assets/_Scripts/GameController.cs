@@ -9,14 +9,9 @@ public class GameController : MonoBehaviour {
     public event VictoryEvent onVictory;
 	// Use this for initialization
 	void Awake () {
-		if(instance != null && instance != this) {
-            Destroy(this);
-        }
-        else {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-	}
+        instance = this;
+
+    }
 
     /// <summary>
     /// handles the gameover state

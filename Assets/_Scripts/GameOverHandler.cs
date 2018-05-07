@@ -11,17 +11,14 @@ public class GameOverHandler : MonoBehaviour {
 
     void Start() {
         GameController.instance.onVictory += HandleVictoryCanvas;
-        
+
     }
 
-    void Update() {
-        Debug.Log(GameOverScreen);
-    }
     /// <summary>
     /// recieves the onVictory event to enable the final screens
     /// </summary>
     /// <param name="player"></param>
-    private void HandleVictoryCanvas(int player) {
+    public void HandleVictoryCanvas(int player) {
         GameOverScreen.gameObject.SetActive(true);
         if(player == 0) {
             player1.SetActive(true);
