@@ -59,6 +59,17 @@ public class PlayerMovement : MonoBehaviour
     private float boostDuration;
 
     public bool isBoosting { get; private set; } // do not monitor input during boost
+
+    public float BoostDuration {
+        get {
+            return boostDuration;
+        }
+
+        set {
+            boostDuration = value;
+        }
+    }
+
     private Coroutine boostCoroutine;
 
     private bool isKnocked; // do not monitor input during knockback
@@ -96,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = Vector3.Normalize(moveDirection);
 
             rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
-            transform.right = moveDirection;
+            //transform.right = Vector3.Normalize(rigidB.velocity);
         }
 
         if (Input.GetKeyDown(Boost))
@@ -125,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
         float speed = moveSpeed < minBoostSpeed ? minBoostSpeed : moveSpeed;
 
         rigidB.velocity = Vector2.Lerp(rigidB.velocity, speed * boostSpeedMultiplier * boostDirection, Time.deltaTime);
-        yield return new WaitForSeconds(boostDuration);
+        yield return new WaitForSeconds(BoostDuration);
         isBoosting = false;
         boostCoroutine = null;
     }

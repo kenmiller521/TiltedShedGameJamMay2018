@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
-
 /// <summary>
 /// Applies force on collision depending on pickup count
 /// Ruben Sanchez
@@ -9,6 +9,10 @@ using UnityEngine.Events;
 
 public class CollisionManager : MonoBehaviour
 {
+    [SerializeField]
+    private UnityEvent onMiss;
+
+    public static float forceScaleMultiplier = 40f;
     public static float forceScaleMultiplier = 50f;
 
     [SerializeField]
@@ -19,7 +23,8 @@ public class CollisionManager : MonoBehaviour
     private PlayerPickUpHandler pickUpHandler;
     private PlayerMovement playerMovement;
     private string tagToCompare = "Player";
-
+    private bool hit = false, inMissWindow = false;
+    private float timePassed;
     private void Awake()
     {
         rigidB = GetComponentInParent<Rigidbody2D>();
@@ -29,7 +34,22 @@ public class CollisionManager : MonoBehaviour
 
     private void Update()
     {
-      
+        if (inMissWindow) {
+            timePassed += Time.deltaTime;
+            if (hit) {
+                timePassed = 0f;
+                inMissWindow = false;
+            }
+            else if(timePassed > playerMovement.BoostDuration + 0.5f) {
+                timePassed = 0f;
+                inMissWindow = false;
+                onMiss.Invoke();
+            }
+        }
+    }
+
+    public void StartMissCheck() {
+        inMissWindow = true;
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -52,6 +72,7 @@ public class CollisionManager : MonoBehaviour
                     otherPickUpHandler.GetComponentInParent<Rigidbody2D>()
                         .AddForce(direction * difference * forceScaleMultiplier);
 
+                    hit = true;
                 }
             }
 
