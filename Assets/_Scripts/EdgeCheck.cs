@@ -14,8 +14,12 @@ public class EdgeCheck : MonoBehaviour
 
 	void Update () 
 	{
+        //cheap way to handle distance checking for OOB
 		if((player1.transform.position - ArenaCenter.position).sqrMagnitude > ArenaSize * ArenaSize) {
-
+            GameController.instance.HandleWin(1);
+        }
+        if((player2.transform.position - ArenaCenter.position).sqrMagnitude > ArenaSize * ArenaSize) {
+            GameController.instance.HandleWin(0);
         }
 	}
 }
