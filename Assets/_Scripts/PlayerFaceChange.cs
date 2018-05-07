@@ -7,7 +7,8 @@ public class PlayerFaceChange : MonoBehaviour {
         idle,
         charge,
         hurt,
-        miss
+        miss,
+        dead
     }
     [Serializable]
     public struct FaceReference {
