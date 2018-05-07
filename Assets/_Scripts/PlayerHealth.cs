@@ -24,6 +24,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private UnityEvent gameOver;
 
+    public int playerID;
+
     private int currentHealth;
     private Coroutine gameOverCoroutine;
 
@@ -45,8 +47,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
-
         if (gameOverCoroutine == null)
             gameOverCoroutine = StartCoroutine(GameOverDelay());
     }
@@ -61,5 +61,6 @@ public class PlayerHealth : MonoBehaviour
     public void ZoomInOnWinner()
     {
         ProCamera2D.Instance.DollyZoom(60f, 1f, EaseType.EaseIn);
+        ProCamera2D.Instance.Zoom(-.2f, 1f, EaseType.EaseIn);
     }
 }
