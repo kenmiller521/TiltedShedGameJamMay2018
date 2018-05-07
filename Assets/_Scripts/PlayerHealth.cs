@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Com.LuisPedroFonseca.ProCamera2D;
+using UnityEditorInternal.VR;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,12 +40,15 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth == 0)
         {
             onDeath.Invoke();
-
-            Destroy(gameObject);
-            if(gameOverCoroutine == null)
-                gameOverCoroutine = StartCoroutine(GameOverDelay());
         }
-           
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+
+        if (gameOverCoroutine == null)
+            gameOverCoroutine = StartCoroutine(GameOverDelay());
     }
 
     public IEnumerator GameOverDelay()
@@ -56,6 +60,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void ZoomInOnWinner()
     {
-        ProCamera2D.Instance.DollyZoom(30f, 1f, EaseType.EaseInOut);
+        ProCamera2D.Instance.DollyZoom(60f, 1f, EaseType.EaseIn);
     }
 }
