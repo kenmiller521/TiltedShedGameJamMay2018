@@ -13,7 +13,7 @@ public class PlayerPickUpHandler : MonoBehaviour
     [SerializeField]
     private UnityEvent onPickup;
 
-    private int _pickUpCount;
+    public int pickUpCount { get; private set; }
     ChangeSizeEvent AdjustSpeed;
     private Transform player;
 
@@ -21,14 +21,10 @@ public class PlayerPickUpHandler : MonoBehaviour
 
     void Start() {
         AdjustSpeed = new ChangeSizeEvent();
-        player = GetComponent<SpriteRenderer>().transform;
+        player = GetComponentInChildren<SpriteRenderer>().transform;
         playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
-    public int PickUpCount {
-        get { return _pickUpCount; }
-        set { _pickUpCount = value; }
-    }
     /// <summary>
     /// Changes the amount of pickups we are carrying up to an amount
     /// Fires off the adjust speed event on the player
@@ -36,7 +32,7 @@ public class PlayerPickUpHandler : MonoBehaviour
     /// </summary>
     /// <param name="amount"></param>
     public void ChangeSize(int amount) {
-        _pickUpCount -= amount;
+        pickUpCount -= amount;
         onPickup.Invoke();
         
         //AdjustSpeed.Invoke(_pickUpCount);

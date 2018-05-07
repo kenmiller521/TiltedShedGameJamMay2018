@@ -8,36 +8,48 @@
 
 public class CollisionManager : MonoBehaviour
 {
-    public static float forceScaleMultiplier = 2f;
+    public static float forceScaleMultiplier = 40f;
 
     private Rigidbody2D rigidB;
 
     private PlayerPickUpHandler pickUpHandler;
+    private PlayerMovement playerMovement;
+    private string tagToCompare = "Player";
 
     private void Awake()
     {
         rigidB = GetComponentInParent<Rigidbody2D>();
         pickUpHandler = GetComponent<PlayerPickUpHandler>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void Update()
     {
-        if (other.gameObject.GetComponent<PlayerPickUpHandler>() != null)
-        {
-            PlayerPickUpHandler otherPickUpHandler = other.gameObject.GetComponent<PlayerPickUpHandler>();
-            int difference = pickUpHandler.PickUpCount - otherPickUpHandler.PickUpCount;
+      
+    }
 
-            //if other planet is smaller
-            if (difference > 0)
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(tagToCompare))
+        {
+            if (other.gameObject.GetComponentInChildren<PlayerPickUpHandler>() != null)
             {
-                //you were boosting
-                if (GetComponentInParent<PlayerMovement>() != null && GetComponentInParent<PlayerMovement>().isBoosting)
+
+                PlayerPickUpHandler otherPickUpHandler = other.gameObject.GetComponentInChildren<PlayerPickUpHandler>();
+                int difference = otherPickUpHandler.pickUpCount - pickUpHandler.pickUpCount;
+
+                //if other planet is smaller and you were boosting
+                if (difference > 0 && playerMovement.isBoosting)
                 {
                     Vector2 direction = Vector3.Normalize(other.transform.position - transform.position);
 
-                    otherPickUpHandler.GetComponentInParent<Rigidbody2D>().AddForce(direction * forceScaleMultiplier);
+                    otherPickUpHandler.GetComponentInParent<Rigidbody2D>()
+                        .AddForce(direction * difference * forceScaleMultiplier);
+
                 }
             }
+
         }
+       
     }
 }
