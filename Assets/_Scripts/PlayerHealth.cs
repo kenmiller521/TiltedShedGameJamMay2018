@@ -60,7 +60,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void ZoomInOnWinner()
     {
+
+        ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
         ProCamera2D.Instance.DollyZoom(60f, 1f, EaseType.EaseIn);
         ProCamera2D.Instance.Zoom(-.2f, 1f, EaseType.EaseIn);
+
+        gameObject.SetActive(false);
     }
 }
