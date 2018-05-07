@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Com.LuisPedroFonseca.ProCamera2D;
+using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
@@ -18,7 +20,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private UnityEvent onDeath;
 
+    [SerializeField]
+    private UnityEvent gameOver;
+
     private int currentHealth;
+    private Coroutine gameOverCoroutine;
 
 	void Start ()
 	{
@@ -30,7 +36,26 @@ public class PlayerHealth : MonoBehaviour
         Destroy(moons[currentHealth - 1]);
         currentHealth--;
 
-        if(currentHealth == 0)
+        if (currentHealth == 0)
+        {
             onDeath.Invoke();
+
+            Destroy(gameObject);
+            if(gameOverCoroutine == null)
+                gameOverCoroutine = StartCoroutine(GameOverDelay());
+        }
+           
+    }
+
+    public IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSeconds(2);
+        gameOver.Invoke();
+        gameOverCoroutine = null;
+    }
+
+    public void ZoomInOnWinner()
+    {
+        ProCamera2D.Instance.DollyZoom(30f, 1f, EaseType.EaseInOut);
     }
 }
