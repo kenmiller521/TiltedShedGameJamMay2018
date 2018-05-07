@@ -24,6 +24,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private UnityEvent gameOver;
 
+    [SerializeField]
+    private float dZoom;
+
+    [SerializeField]
+    private float dZoomDuration;
+
     public int playerID;
 
     private int currentHealth;
@@ -65,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
 
         ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
-        ProCamera2D.Instance.Zoom(-18f, 3.5f, EaseType.EaseIn);
+        ProCamera2D.Instance.Zoom(dZoom, dZoomDuration, EaseType.EaseIn);
 
         gameObject.SetActive(false);
     }
