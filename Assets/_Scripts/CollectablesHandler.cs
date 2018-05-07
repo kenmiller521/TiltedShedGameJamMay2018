@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class CollectablesHandler : MonoBehaviour {
     public CollectableObject ObjectToSpawn;
-    public float SizeOfArena = 10f;
+    public float SizeOfArena = 25f;
     public int MaxSpawnAmount = 15;
     public float SpawnDelay = 5f;
     private int _spawnedCount = 0;
