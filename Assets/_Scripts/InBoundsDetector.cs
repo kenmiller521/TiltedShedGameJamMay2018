@@ -28,6 +28,8 @@ public class InBoundsDetector : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCollider.transform.position, playerCollider.radius, boundryLayer);
 
         if (colliders.Length == 0)
+        {
             onOutOfBounds.Invoke();
+        }
     }
 }
