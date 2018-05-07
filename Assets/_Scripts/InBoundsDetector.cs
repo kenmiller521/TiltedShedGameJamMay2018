@@ -12,15 +12,20 @@ public class InBoundsDetector : MonoBehaviour
     private CircleCollider2D playerCollider;
 
     [SerializeField]
-    private LayerMask boundryLayer;
+    private CircleCollider2D boundryCollider;
+
+    [SerializeField] private LayerMask boundryLayer;
 
 
 
 	void Update ()
-	{
-	    Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCollider.transform.position, playerCollider.radius, boundryLayer);
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCollider.transform.position, playerCollider.radius, boundryLayer);
 
-	    if (colliders.Length == 0)
-	        Destroy(gameObject);
-	}
+        if (colliders.Length == 0)
+            Destroy(gameObject);
+
+        //if (!playerCollider.IsTouching(boundryCollider))
+        //    Destroy(gameObject);
+    }
 }
