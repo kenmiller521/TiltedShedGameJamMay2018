@@ -29,6 +29,14 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     private Animator p1AnimationController;
     [SerializeField]
     private Animator p2AnimationController;
+    [SerializeField]
+    private Image p1Face;
+    [SerializeField]
+    private Image p2Face;
+    [SerializeField]
+    private Sprite happyFace;
+    [SerializeField]
+    private Sprite neutralFace;
 
     private void Start() {
         //Both player are not ready when the players first go to the skin selection screen
@@ -88,14 +96,16 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     }
     public void player1ReadyButton(Image buttonImage) {
         p1Ready = !p1Ready;
-        buttonImage.color = (p1Ready) ? Color.green : Color.red;
+        buttonImage.color = (p1Ready) ? Color.green : Color.white;
         p1PrevButton.interactable = !p1Ready;
         p1NextButton.interactable = !p1Ready;
+        p1Face.sprite = (p1Ready) ? happyFace : neutralFace;
     }
     public void player2ReadyButton(Image buttonImage) {
         p2Ready = !p2Ready;
-        buttonImage.color = (p2Ready) ? Color.green : Color.red;
+        buttonImage.color = (p2Ready) ? Color.green : Color.white;
         p2PrevButton.interactable = !p2Ready;
         p2NextButton.interactable = !p2Ready;
+        p2Face.sprite = (p2Ready) ? happyFace : neutralFace;
     }
 }
