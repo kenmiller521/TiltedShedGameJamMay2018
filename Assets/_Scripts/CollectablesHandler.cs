@@ -10,7 +10,8 @@ public class CollectablesHandler : MonoBehaviour {
     public CollectableObject ObjectToSpawn;
     public float SizeOfArena = 25f;
     public int MaxSpawnAmount = 15;
-    public float SpawnDelay = 5f;
+    //Currently not implemented
+    //public float SpawnDelay = 5f;
     private int _spawnedCount = 0;
 
     [SerializeField]
