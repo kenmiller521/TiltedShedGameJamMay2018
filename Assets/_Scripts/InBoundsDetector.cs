@@ -24,8 +24,5 @@ public class InBoundsDetector : MonoBehaviour
 
         if (colliders.Length == 0)
             Destroy(gameObject);
-
-        //if (!playerCollider.IsTouching(boundryCollider))
-        //    Destroy(gameObject);
     }
 }
