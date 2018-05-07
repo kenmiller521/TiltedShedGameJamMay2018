@@ -8,11 +8,14 @@
 
 public class EdgeCheck : MonoBehaviour
 {
-    public CircleCollider2D boundryCollider;
-	
+    public float ArenaSize = 25f;
+    public Transform ArenaCenter; 
+    public GameObject player1, player2;
+
 	void Update () 
 	{
-		if((transform.position - boundryCollider.transform.position).magnitude > boundryCollider.radius)
-            print("reeee");
+		if((player1.transform.position - ArenaCenter.position).sqrMagnitude > ArenaSize * ArenaSize) {
+
+        }
 	}
 }
