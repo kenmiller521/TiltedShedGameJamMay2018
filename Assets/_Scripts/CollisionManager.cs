@@ -73,6 +73,8 @@ public class CollisionManager : MonoBehaviour
                     otherPickUpHandler.GetComponentInParent<Rigidbody2D>()
                         .AddForce(direction * difference * forceScaleMultiplier);
 
+                    other.gameObject.GetComponent<PlayerHealth>().DecrementHealth();
+
                     hit = true;
                 }
             }

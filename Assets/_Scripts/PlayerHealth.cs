@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Com.LuisPedroFonseca.ProCamera2D;
+using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Manages Health for the player
@@ -11,15 +14,48 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private int startingHealth;
 
-    private int currentHealth;
+    [SerializeField]
+    private GameObject[] moons;
 
-	void Start () 
+    [SerializeField]
+    private UnityEvent onDeath;
+
+    [SerializeField]
+    private UnityEvent gameOver;
+
+    private int currentHealth;
+    private Coroutine gameOverCoroutine;
+
+	void Start ()
 	{
-		
+	    currentHealth = startingHealth;
 	}
 	
-	void Update () 
-	{
-		
-	}
+    public void DecrementHealth()
+    {
+        Destroy(moons[currentHealth - 1]);
+        currentHealth--;
+
+        if (currentHealth == 0)
+        {
+            onDeath.Invoke();
+
+            Destroy(gameObject);
+            if(gameOverCoroutine == null)
+                gameOverCoroutine = StartCoroutine(GameOverDelay());
+        }
+           
+    }
+
+    public IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSeconds(2);
+        gameOver.Invoke();
+        gameOverCoroutine = null;
+    }
+
+    public void ZoomInOnWinner()
+    {
+        ProCamera2D.Instance.DollyZoom(30f, 1f, EaseType.EaseInOut);
+    }
 }
