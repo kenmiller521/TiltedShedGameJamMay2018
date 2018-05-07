@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = Vector3.Normalize(moveDirection);
 
             rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
-            //transform.right = Vector3.Normalize(rigidB.velocity);
+            transform.right = Vector3.Normalize(rigidB.velocity);
         }
 
         if (Input.GetKeyDown(Boost))

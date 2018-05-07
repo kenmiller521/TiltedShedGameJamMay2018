@@ -388,12 +388,12 @@ Prefab:
         type: 2}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 1895564452}
+      objectReference: {fileID: 1934979790}
     - target: {fileID: 114930760225882136, guid: 71ce82faf9445ca40b5059411b9b790d,
         type: 2}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 1934979790}
+      objectReference: {fileID: 1895564452}
     - target: {fileID: 20130927055878554, guid: 71ce82faf9445ca40b5059411b9b790d,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.height
@@ -481,11 +481,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4067603114926230, guid: 0076bfe2da055994f902de1b50c04df6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.5866792
+      value: -3.494
       objectReference: {fileID: 0}
     - target: {fileID: 4067603114926230, guid: 0076bfe2da055994f902de1b50c04df6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.375721
+      value: -0.495
       objectReference: {fileID: 0}
     - target: {fileID: 4067603114926230, guid: 0076bfe2da055994f902de1b50c04df6, type: 2}
       propertyPath: m_LocalPosition.z

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Com.LuisPedroFonseca.ProCamera2D;
 /// <summary>
 /// Applies force on collision depending on pickup count
 /// Ruben Sanchez
@@ -12,7 +13,6 @@ public class CollisionManager : MonoBehaviour
     [SerializeField]
     private UnityEvent onMiss;
 
-    public static float forceScaleMultiplier = 40f;
     public static float forceScaleMultiplier = 50f;
 
     [SerializeField]
@@ -65,12 +65,15 @@ public class CollisionManager : MonoBehaviour
                 //if other planet is smaller and you were boosting
                 if (difference > 0 && playerMovement.isBoosting)
                 {
+                    ProCamera2D.Instance.GetComponent<ProCamera2DShake>().Shake(.3f, new Vector2(difference, difference), 2, 0f, Vector3.Angle(this.transform.position, other.gameObject.transform.position), default(Vector3), .1f);
                     onCollision.Invoke();
                     
                     Vector2 direction = Vector3.Normalize(other.transform.position - transform.position);
 
                     otherPickUpHandler.GetComponentInParent<Rigidbody2D>()
                         .AddForce(direction * difference * forceScaleMultiplier);
+
+                    other.gameObject.GetComponent<PlayerHealth>().DecrementHealth();
 
                     hit = true;
                 }
