@@ -6,7 +6,7 @@ using Com.LuisPedroFonseca.ProCamera2D;
 /// To access camera, use "ProCamera2D.Instance", then your methods/functions
 /// </summary>
 public class CameraController : MonoBehaviour {
-    public GameObject[] players;
+    public List<GameObject> players;
 	// Use this for initialization
 	void Start () {
 		foreach(GameObject player in players)
