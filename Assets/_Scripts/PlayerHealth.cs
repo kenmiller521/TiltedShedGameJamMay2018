@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         gameOver.Invoke();
+        GameController.instance.HandleWin(playerID == 0 ? 1 : 0);
         gameOverCoroutine = null;
     }
 
