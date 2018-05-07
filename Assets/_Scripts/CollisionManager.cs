@@ -74,7 +74,7 @@ public class CollisionManager : MonoBehaviour
                         .AddForce(direction * difference * forceScaleMultiplier);
 
                     other.gameObject.GetComponent<PlayerHealth>().DecrementHealth();
-
+                    other.gameObject.GetComponent<PlayerMovement>().Knock();
                     hit = true;
                 }
             }
