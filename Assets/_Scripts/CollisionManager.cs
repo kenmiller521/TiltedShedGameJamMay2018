@@ -12,7 +12,6 @@ public class CollisionManager : MonoBehaviour
     [SerializeField]
     private UnityEvent onMiss;
 
-    public static float forceScaleMultiplier = 40f;
     public static float forceScaleMultiplier = 50f;
 
     [SerializeField]
