@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         gameOver.Invoke();
+        GameController.instance.HandleWin(playerID == 0 ? 1 : 0);
         gameOverCoroutine = null;
     }
 
@@ -71,8 +72,8 @@ public class PlayerHealth : MonoBehaviour
     public void ZoomInOnWinner()
     {
 
-        //ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
-        //ProCamera2D.Instance.Zoom(dZoom, dZoomDuration, EaseType.EaseIn);
+        ProCamera2D.Instance.RemoveCameraTarget(transform, 0f);
+        ProCamera2D.Instance.Zoom(dZoom, dZoomDuration, EaseType.EaseIn);
         //Invoke("DisableLate", dZoom * 2);
         gameObject.SetActive(false);
     }

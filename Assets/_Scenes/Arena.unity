@@ -288,7 +288,7 @@ Prefab:
     - target: {fileID: 114707436999037208, guid: 91f18f7c66990124da4904542cbbab71,
         type: 2}
       propertyPath: gameOver.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4378012878405548, guid: 91f18f7c66990124da4904542cbbab71, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1686,7 +1686,7 @@ Prefab:
     - target: {fileID: 114023391930794250, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
       propertyPath: gameOver.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4067603114926230, guid: 0076bfe2da055994f902de1b50c04df6, type: 2}
       propertyPath: m_LocalPosition.x
