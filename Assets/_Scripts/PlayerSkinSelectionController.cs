@@ -18,10 +18,6 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     [SerializeField]
     private Image player2SkinSelction;
     [SerializeField]
-    private Image p1Ring;
-    [SerializeField]
-    private Image p2Ring;
-    [SerializeField]
     private Button p1PrevButton, p1NextButton;
     [SerializeField]
     private Button p2PrevButton, p2NextButton;
@@ -46,14 +42,12 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         p2Count = PlayerPrefs.GetInt("P2SkinID", 0);
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
-        p1Ring.gameObject.SetActive((p1Count == 2));
-        p2Ring.gameObject.SetActive((p2Count == 2));
         p1AnimationController.SetInteger("SkinID", p1Count);
         p2AnimationController.SetInteger("SkinID", p2Count);
     }
     private void Update() {
         if(p1Ready == true && p2Ready == true) {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("Arena");
         }
     }
     public void p1SkinChoiceNext() {
@@ -62,7 +56,6 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p1Count = 0;
         }
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
-        p1Ring.gameObject.SetActive((p1Count == 2));
         p1AnimationController.SetInteger("SkinID", p1Count);
         PlayerPrefs.SetInt("P1SkinID", p1Count);
     }
@@ -72,7 +65,6 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p2Count = 0;
         }
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
-        p2Ring.gameObject.SetActive((p2Count == 2));
         p2AnimationController.SetInteger("SkinID", p2Count);
         PlayerPrefs.SetInt("P2SkinID", p2Count);
     }

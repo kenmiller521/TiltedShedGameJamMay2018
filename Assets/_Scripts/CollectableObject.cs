@@ -10,6 +10,13 @@ public class CollectableObject : MonoBehaviour {
     public delegate void OnPickUpEvent();
     public event OnPickUpEvent OnPickUp;
 
+    [SerializeField]
+    private List<Sprite> collectableSprites;
+
+    public void Start()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = collectableSprites[Random.Range(0, collectableSprites.Count-1)];
+    }
     void OnTriggerEnter2D(Collider2D c) {
         PlayerPickUpHandler temp = c.GetComponent<PlayerPickUpHandler>();
         if (temp != null)
