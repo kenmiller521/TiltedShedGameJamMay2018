@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Applies force on collision depending on pickup count
@@ -8,7 +9,10 @@
 
 public class CollisionManager : MonoBehaviour
 {
-    public static float forceScaleMultiplier = 40f;
+    public static float forceScaleMultiplier = 50f;
+
+    [SerializeField]
+    private UnityEvent onCollision;
 
     private Rigidbody2D rigidB;
 
@@ -41,6 +45,8 @@ public class CollisionManager : MonoBehaviour
                 //if other planet is smaller and you were boosting
                 if (difference > 0 && playerMovement.isBoosting)
                 {
+                    onCollision.Invoke();
+                    
                     Vector2 direction = Vector3.Normalize(other.transform.position - transform.position);
 
                     otherPickUpHandler.GetComponentInParent<Rigidbody2D>()

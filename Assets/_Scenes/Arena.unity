@@ -123,12 +123,9 @@ GameObject:
   - component: {fileID: 79379976}
   - component: {fileID: 79379979}
   - component: {fileID: 79379980}
-<<<<<<< HEAD
-=======
   - component: {fileID: 79379978}
   - component: {fileID: 79379977}
   - component: {fileID: 79379981}
->>>>>>> master
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -150,8 +147,6 @@ Transform:
   m_Father: {fileID: 1895564455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!114 &79379977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +173,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
->>>>>>> master
 --- !u!212 &79379979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -607,12 +601,6 @@ GameObject:
   - component: {fileID: 1895564455}
   - component: {fileID: 1895564454}
   - component: {fileID: 1895564453}
-<<<<<<< HEAD
-  - component: {fileID: 1895564456}
-  - component: {fileID: 1895564458}
-=======
->>>>>>> master
-  - component: {fileID: 1895564457}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -692,12 +680,12 @@ MonoBehaviour:
   onKnock:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1895564454}
-        m_MethodName: Knock
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -731,83 +719,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!114 &1895564456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1895564452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292f48bb42460c54d8196746b4b57191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1895564457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1895564452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40441e020a764144fae3d3a9caabda46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleChangeAmount: 0.5
-  onPickup:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 79379980}
-        m_MethodName: IncreaseSize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1895564454}
-        m_MethodName: ChangeSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!58 &1895564458
-=======
---- !u!58 &1895564457
->>>>>>> master
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1895564452}
-  m_Enabled: 1
-  m_Density: 1
-<<<<<<< HEAD
-  m_Material: {fileID: 6200000, guid: 372735267ab6f504aaa095df7e1a4522, type: 2}
-=======
-  m_Material: {fileID: 0}
->>>>>>> master
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-<<<<<<< HEAD
-  m_Radius: 0.08
-=======
-  m_Radius: 0.46
->>>>>>> master
 --- !u!1 &1932214662
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,12 +758,7 @@ Transform:
 --- !u!114 &1932214664
 MonoBehaviour:
   m_ObjectHideFlags: 0
-<<<<<<< HEAD
-  m_PrefabParentObject: {fileID: 114045518776158162, guid: 2962b1ea3bacfff4da2a4e5a00417ad5,
-    type: 2}
-=======
   m_PrefabParentObject: {fileID: 0}
->>>>>>> master
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1932214662}
   m_Enabled: 1
@@ -863,17 +769,12 @@ MonoBehaviour:
 --- !u!58 &1932214665
 CircleCollider2D:
   m_ObjectHideFlags: 0
-<<<<<<< HEAD
-  m_PrefabParentObject: {fileID: 58779266772823536, guid: 2962b1ea3bacfff4da2a4e5a00417ad5,
-    type: 2}
-=======
   m_PrefabParentObject: {fileID: 0}
->>>>>>> master
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1932214662}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 372735267ab6f504aaa095df7e1a4522, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -990,7 +891,6 @@ GameObject:
   - component: {fileID: 1934979793}
   - component: {fileID: 1934979792}
   - component: {fileID: 1934979791}
-  - component: {fileID: 1934979794}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -1071,18 +971,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onKnock:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1934979792}
-        m_MethodName: Knock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   knockBackDuration: 0
@@ -1112,14 +1001,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1934979794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934979790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292f48bb42460c54d8196746b4b57191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
