@@ -9,7 +9,7 @@ public class GameOverHandler : MonoBehaviour {
     public GameObject GameOverScreen;
     public GameObject player1, player2; 
 
-    void Awake() {
+    void Start() {
         GameController.instance.onVictory += HandleVictoryCanvas;
     }
 
