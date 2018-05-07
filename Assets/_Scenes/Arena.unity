@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &16513837 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114930760225882136, guid: 71ce82faf9445ca40b5059411b9b790d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1079548179}
+  m_Script: {fileID: 11500000, guid: 61664fe783a682e47bf80c5d8e00b3c8, type: 3}
 --- !u!1001 &360033395
 Prefab:
   m_ObjectHideFlags: 0
@@ -266,11 +272,11 @@ Prefab:
         type: 2}
       propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1895564452}
+      objectReference: {fileID: 1399859313}
     - target: {fileID: 114557264227050038, guid: 91f18f7c66990124da4904542cbbab71,
         type: 2}
       propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 114557264227050038, guid: 91f18f7c66990124da4904542cbbab71,
         type: 2}
@@ -281,6 +287,16 @@ Prefab:
         type: 2}
       propertyPath: playerID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114707436999037208, guid: 91f18f7c66990124da4904542cbbab71,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 16513837}
+    - target: {fileID: 114557264227050038, guid: 91f18f7c66990124da4904542cbbab71,
+        type: 2}
+      propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91f18f7c66990124da4904542cbbab71, type: 2}
@@ -508,12 +524,12 @@ Prefab:
         type: 2}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 1895564452}
+      objectReference: {fileID: 1934979790}
     - target: {fileID: 114930760225882136, guid: 71ce82faf9445ca40b5059411b9b790d,
         type: 2}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 1934979790}
+      objectReference: {fileID: 1895564452}
     - target: {fileID: 20130927055878554, guid: 71ce82faf9445ca40b5059411b9b790d,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.height
@@ -592,6 +608,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71ce82faf9445ca40b5059411b9b790d, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1399859313 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212428650007674462, guid: 91f18f7c66990124da4904542cbbab71,
+    type: 2}
+  m_PrefabInternal: {fileID: 360033395}
 --- !u!1001 &1448072999
 Prefab:
   m_ObjectHideFlags: 0
@@ -602,7 +623,7 @@ Prefab:
     - target: {fileID: 114023391930794250, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114742977427328670, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
@@ -725,11 +746,11 @@ Prefab:
         type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1934979790}
+      objectReference: {fileID: 1512683019}
     - target: {fileID: 114023391930794250, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 114023391930794250, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
@@ -750,20 +771,30 @@ Prefab:
         type: 2}
       propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1934979790}
+      objectReference: {fileID: 1512683019}
     - target: {fileID: 114742977427328670, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
       propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 114742977427328670, guid: 0076bfe2da055994f902de1b50c04df6,
         type: 2}
       propertyPath: onOutOfBounds.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114023391930794250, guid: 0076bfe2da055994f902de1b50c04df6,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 16513837}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0076bfe2da055994f902de1b50c04df6, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1512683019 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212929866444118236, guid: 0076bfe2da055994f902de1b50c04df6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1448072999}
 --- !u!1 &1895564452 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1002166572218982, guid: 91f18f7c66990124da4904542cbbab71,
