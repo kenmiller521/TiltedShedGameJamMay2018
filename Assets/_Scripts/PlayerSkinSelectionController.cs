@@ -25,6 +25,10 @@ public class PlayerSkinSelectionController : MonoBehaviour {
     private Button p1PrevButton, p1NextButton;
     [SerializeField]
     private Button p2PrevButton, p2NextButton;
+    [SerializeField]
+    private Animator p1AnimationController;
+    [SerializeField]
+    private Animator p2AnimationController;
 
     private void Start() {
         //Both player are not ready when the players first go to the skin selection screen
@@ -36,6 +40,8 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
         p1Ring.gameObject.SetActive((p1Count == 2));
         p2Ring.gameObject.SetActive((p2Count == 2));
+        p1AnimationController.SetInteger("SkinID", p1Count);
+        p2AnimationController.SetInteger("SkinID", p2Count);
     }
     private void Update() {
         if(p1Ready == true && p2Ready == true) {
@@ -49,6 +55,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         }
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
         p1Ring.gameObject.SetActive((p1Count == 2));
+        p1AnimationController.SetInteger("SkinID", p1Count);
         PlayerPrefs.SetInt("P1SkinID", p1Count);
     }
     public void p2SkinChoiceNext() {
@@ -58,6 +65,7 @@ public class PlayerSkinSelectionController : MonoBehaviour {
         }
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
         p2Ring.gameObject.SetActive((p2Count == 2));
+        p2AnimationController.SetInteger("SkinID", p2Count);
         PlayerPrefs.SetInt("P2SkinID", p2Count);
     }
     public void p1SkinChoicePrev() {
@@ -66,6 +74,8 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p1Count = 2;
         }
         player1SkinSelction.sprite = p1SpriteArray[p1Count];
+        p1AnimationController.SetInteger("SkinID", p1Count);
+        PlayerPrefs.SetInt("P1SkinID", p1Count);
     }
     public void p2SkinChoicePrev() {
         p2Count--;
@@ -73,6 +83,8 @@ public class PlayerSkinSelectionController : MonoBehaviour {
             p2Count = 2;
         }
         player2SkinSelction.sprite = p2SpriteArray[p2Count];
+        p2AnimationController.SetInteger("SkinID", p2Count);
+        PlayerPrefs.SetInt("P2SkinID", p2Count);
     }
     public void player1ReadyButton(Image buttonImage) {
         p1Ready = !p1Ready;
