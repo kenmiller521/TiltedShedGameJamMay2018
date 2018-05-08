@@ -8,7 +8,7 @@ using System.Collections;
 /// </summary>
 
 public class PlayerSize : MonoBehaviour
- {
+{
     [SerializeField]
     private Vector2 startingLocalScale = Vector2.one;
 
@@ -20,34 +20,23 @@ public class PlayerSize : MonoBehaviour
 
     private CoroutineQueue sizingQueue;
 
-    private void Awake()
-    {
-        transform.localScale = startingLocalScale;
-    }
+    private void Awake(){ transform.localScale = startingLocalScale; }
+
     private void Start()
     {
         sizingQueue = new CoroutineQueue(this);
         sizingQueue.StartLoop();
     }
 
-    public void IncreaseSize()
-     {
-        sizingQueue.EnqueueAction(IIncreasable());
-     }
-
-     public void DecreaseSize()
-     {
-        sizingQueue.EnqueueAction(IDecreasable());
-     }
+    public void IncreaseSize(){ sizingQueue.EnqueueAction(IIncreasable()); }
+    public void DecreaseSize(){ sizingQueue.EnqueueAction(IDecreasable()); }
 
     public IEnumerator IDecreasable()
     {
         Vector2 targetSize = new Vector2(transform.localScale.x - scaleChangeSize, transform.localScale.y - scaleChangeSize);
         //don't attempt to decrease if player is at the minimum size
-        if (transform.localScale.magnitude >= minLocalScale.magnitude)
-        {
-            while (transform.localScale.magnitude >= targetSize.magnitude)
-            {
+        if (transform.localScale.magnitude >= minLocalScale.magnitude){
+            while (transform.localScale.magnitude >= targetSize.magnitude){
                 //if player hits the minimum size, break
                 if (transform.localScale.magnitude < minLocalScale.magnitude){
                     transform.localScale = minLocalScale;
@@ -67,5 +56,4 @@ public class PlayerSize : MonoBehaviour
             yield return new WaitForSeconds(.01f);
         }
     }
-
 }
