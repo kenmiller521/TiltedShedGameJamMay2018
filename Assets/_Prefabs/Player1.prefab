@@ -655,8 +655,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingLocalScale: {x: 5, y: 5}
-  minLocalScale: {x: 1, y: 1}
+  minLocalScale: {x: 3, y: 3}
   scaleChangeSize: 2
+  timeToChange: 1
 --- !u!114 &114742977427328670
 MonoBehaviour:
   m_ObjectHideFlags: 1
