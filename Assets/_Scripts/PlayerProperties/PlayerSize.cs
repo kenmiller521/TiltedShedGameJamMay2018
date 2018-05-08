@@ -18,9 +18,6 @@ public class PlayerSize : MonoBehaviour
     [SerializeField]
     private float scaleChangeSize = .5f;
 
-    [SerializeField]
-    private float timeToChange = 1f;
-
     private CoroutineQueue sizingQueue;
 
     private void Awake()
@@ -64,6 +61,7 @@ public class PlayerSize : MonoBehaviour
     public IEnumerator IIncreasable()
     {
         Vector2 targetSize = new Vector2(transform.localScale.x + scaleChangeSize, transform.localScale.y + scaleChangeSize);
+        //effectively "lerp" player's size up, called on pickup
         while (transform.localScale.magnitude <= targetSize.magnitude){
             transform.localScale = new Vector2(transform.localScale.x +.05f, transform.localScale.y + 0.05f);
             yield return new WaitForSeconds(.01f);
