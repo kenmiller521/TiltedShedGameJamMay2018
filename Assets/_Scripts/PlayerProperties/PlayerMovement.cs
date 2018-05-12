@@ -10,6 +10,8 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private int PID;
+
     [SerializeField]
     private UnityEvent onBoost;
 
@@ -21,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float knockBackDuration;
 
-
-    [SerializeField]
+    //Disabled - removed customization
+    /*[SerializeField]
     private KeyCode Up;
 
     [SerializeField]
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private KeyCode Right;
 
     [SerializeField]
-    private KeyCode Boost;
+    private KeyCode Boost;*/
 
     [SerializeField]
     private float moveSpeed;
@@ -83,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidB = GetComponent<Rigidbody2D>();
-
+        PID = GetComponentInChildren<PlayerSkinApplier>().PlayerID;
     }
 
     void Update ()
@@ -92,25 +94,27 @@ public class PlayerMovement : MonoBehaviour
         {
              moveDirection = Vector2.zero;
 
-            if (Input.GetKey(Up))
+            //Disabled for testing
+            /*if (Input.GetKey(Up) || Input.GetAxis("Y") > 0)
                 moveDirection.y++;
 
-            if (Input.GetKey(Down))
+            if (Input.GetKey(Down) || Input.GetAxis("Y") < 0)
                 moveDirection.y--;
 
-            if (Input.GetKey(Right))
+            if (Input.GetKey(Right) || Input.GetAxis("X") > 0)
                 moveDirection.x++;
 
-            if (Input.GetKey(Left))
+            if (Input.GetKey(Left) || Input.GetAxis("X") < 0)
                 moveDirection.x--;
-
-            moveDirection = Vector3.Normalize(moveDirection);
-
+                */
+            moveDirection.x = Input.GetAxis("Horizontal" + PID);
+            moveDirection.y = Input.GetAxis("Vertical" + PID);
+            moveDirection = moveDirection.normalized;
             rigidB.velocity = Vector2.Lerp(rigidB.velocity, moveDirection * moveSpeed, Time.deltaTime);
-            transform.right = Vector3.Normalize(rigidB.velocity);
+            transform.right = rigidB.velocity.normalized;
         }
-
-        if (Input.GetKeyDown(Boost))
+        //Disabled manual input definitions
+        if (/*Input.GetKeyDown(Boost) ||*/ Input.GetButtonDown("Fire" + PID))
         {
             if (boostCoroutine == null)
             {
